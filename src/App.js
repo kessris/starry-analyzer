@@ -4,6 +4,7 @@ import background from './assets/background.jpg';
 import data from './data';
 import StarContainer from './components/Star/StarContainer';
 import Legend from "./components/misc/Legend";
+import bgm from './assets/interstellar-bgm.mp3';
 
 class App extends Component{
 
@@ -41,17 +42,20 @@ class App extends Component{
                     <div className="modal" style={{display: isModalOpen? 'block' : 'none'}}>
                         <div className="modal-content">
                             <span className="close" onClick={() => this.setState({ isModalOpen: false })}>&times;</span>
-                            <h1>{modalContent.name}</h1>
+                            <p className="modal-title">{modalContent.name}</p>
                             <br/>
-                            <h3>Status: {modalContent.status}</h3>
+                            <p className="modal-font">Status: {modalContent.status}</p>
                             {modalContent.messages && modalContent.messages.map(msg => {
-                                return <h3>{msg}</h3>
+                                return <p className="modal-font">{msg}</p>
                             })}
                         </div>
                     </div>
                 </div>
                 <Legend/>
                 <img src={background} className="background" alt="background"/>
+                <audio ref="bgm" autoPlay={true}>
+                    <source type="audio/mp3" src={bgm}/>
+                </audio>
             </div>
         );
     }
