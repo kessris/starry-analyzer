@@ -1,25 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {Component} from "react";
+import background from './assets/background.jpg';
+import data from './data';
+import Star from './components/Star/Star';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: null
+        }
+    }
+
+    componentWillMount() {
+        this.setState({
+            data: data
+        })
+    }
+
+    render() {
+        return (
+            <div className="App"><Star/>
+                <img src={background} className="background" alt="background" />
+              <Star/>
+            </div>
+        );
+    }
+
 }
 
 export default App;
