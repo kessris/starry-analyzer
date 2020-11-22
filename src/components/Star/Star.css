@@ -5,6 +5,8 @@
     -webkit-animation: glow 1s ease-in-out infinite alternate;
     -moz-animation: glow 1s ease-in-out infinite alternate;
     animation: glow 1s ease-in-out infinite alternate;
+    position: absolute;
+    z-index: 100;
 }
 
 @keyframes glow {

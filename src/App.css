@@ -2,12 +2,14 @@
   text-align: center;
   height: 100vh;
   overflow: hidden;
-  display: flex;
+  position: relative;
 }
 
 .background {
   width: 120%;
+  display: block;
   animation: slide-and-rotate infinite 20s linear;
+  z-index: 1;
 }
 
 @keyframes slide-and-rotate {

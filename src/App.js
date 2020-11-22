@@ -21,9 +21,9 @@ class App extends Component{
 
     render() {
         return (
-            <div className="App"><Star/>
-                <img src={background} className="background" alt="background" />
-              <Star/>
+            <div className="App">
+                <Star/>
+                <img src={background} className="background" alt="background"/>
             </div>
         );
     }
