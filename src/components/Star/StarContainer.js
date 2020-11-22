@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import Star from "./Star";
-import { ArcherContainer, ArcherElement } from 'react-archer';
 
 class StarContainer extends Component{
 
@@ -11,7 +10,6 @@ class StarContainer extends Component{
     }
 
     render() {
-        console.log(this.props.data)
         return (
             <div style={{maxWidth: '100%', display: 'flex'}}>
                 {this.props.data.methods.map(method => {

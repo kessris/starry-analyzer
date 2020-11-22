@@ -3,6 +3,7 @@ import React, {Component} from "react";
 import background from './assets/background.jpg';
 import data from './data';
 import StarContainer from './components/Star/StarContainer';
+import Legend from "./components/misc/Legend";
 
 class App extends Component{
 
@@ -35,7 +36,7 @@ class App extends Component{
             <div className="App">
 
                 <div className="root">
-                    <p className="title">STARRY ANALYZER</p>
+                    <p>STARRY METHODS</p>
                     <StarContainer openModal={this.openModal} data={data}/>
                     <div className="modal" style={{display: isModalOpen? 'block' : 'none'}}>
                         <div className="modal-content">
@@ -49,7 +50,7 @@ class App extends Component{
                         </div>
                     </div>
                 </div>
-
+                <Legend/>
                 <img src={background} className="background" alt="background"/>
             </div>
         );

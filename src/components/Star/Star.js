@@ -12,22 +12,6 @@ class Star extends Component{
         }
     }
 
-    componentWillMount() {
-        let temp = [];
-        this.props.dependencies.forEach(method => {
-            temp.push({
-                targetId: method,
-                targetAnchor: 'top',
-                sourceAnchor: 'bottom',
-                style: { strokeColor: 'black', strokeWidth: 1 },
-
-            })
-        });
-        this.setState({
-           arrows: temp
-        })
-    }
-
     getRandomPosition = () => {
         const xBoundary = window.innerWidth - 300;
         const yBoundary = window.innerHeight - 300;
@@ -48,11 +32,9 @@ class Star extends Component{
 
     render() {
         const {name, status, messages, dependencies} = this.props;
-        const {x, y, arrows} = this.state;
+        const {x, y} = this.state;
 
         if (this.state.x === null || this.state.y === null) this.getRandomPosition();
-        console.log(name)
-        console.log(arrows)
         return (
             <div className="star" style={{top: y+'px', left: x+'px'}} id={name}>
                 <div className="method-name" onClick={() => this.props.openModal({name: name, status: status, messages: messages, dependencies: dependencies})}

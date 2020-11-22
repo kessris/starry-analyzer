@@ -25,7 +25,7 @@ p {
   letter-spacing: 4px;
   overflow: hidden;
   color: white;
-  background: linear-gradient(90deg, #fff, rgba(71, 71, 71, 0.71), #fff) no-repeat;
+  background: linear-gradient(90deg, #fff, rgba(0, 117, 106, 0.71), #fff) no-repeat;
   background-size: 1000%;
   animation: animate 3s linear infinite;
   -webkit-background-clip: text;
