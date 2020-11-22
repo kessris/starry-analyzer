@@ -2,14 +2,16 @@ import './App.css';
 import React, {Component} from "react";
 import background from './assets/background.jpg';
 import data from './data';
-import Star from './components/Star/Star';
+import StarContainer from './components/Star/StarContainer';
 
 class App extends Component{
 
     constructor(props) {
         super(props);
         this.state = {
-            data: null
+            data: null,
+            isModalOpen: false,
+            modalContent: {}
         }
     }
 
@@ -19,10 +21,35 @@ class App extends Component{
         })
     }
 
+    openModal = (content) => {
+        // content: {name, status, messages, dependencies}
+      this.setState({
+          isModalOpen: true,
+          modalContent: content
+      })
+    };
+
     render() {
+        const {data, isModalOpen, modalContent} = this.state;
         return (
             <div className="App">
-                <Star/>
+
+                <div className="root">
+                    <p className="title">STARRY ANALYZER</p>
+                    <StarContainer openModal={this.openModal} data={data}/>
+                    <div className="modal" style={{display: isModalOpen? 'block' : 'none'}}>
+                        <div className="modal-content">
+                            <span className="close" onClick={() => this.setState({ isModalOpen: false })}>&times;</span>
+                            <h1>{modalContent.name}</h1>
+                            <br/>
+                            <h3>Status: {modalContent.status}</h3>
+                            {modalContent.messages && modalContent.messages.map(msg => {
+                                return <h3>{msg}</h3>
+                            })}
+                        </div>
+                    </div>
+                </div>
+
                 <img src={background} className="background" alt="background"/>
             </div>
         );
