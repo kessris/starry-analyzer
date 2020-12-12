@@ -4,12 +4,26 @@
     position: absolute;
 }
 
+.popover-content {
+    position: absolute;
+    left: -100px;
+    transform: translate(0, 20px);
+    padding: 1.5rem;
+    width: 500px;
+    z-index: 1000;
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-size: 17px;
+}
+
 .method-name {
     font-size: 13px;
     transition: transform .2s;
     color: #fff;
     text-align: center;
     animation: glow-red 1s ease-in-out infinite alternate;
+    display: inline-block;
 }
 
 .method-name:hover {
